@@ -1,10 +1,2 @@
-﻿  Calculate.cpp
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(16,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(81,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(202,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(227,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(247,22): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(248,41): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(307,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(344,24): warning C4018: '<': signed/unsigned mismatch
+﻿  Source.cpp
   Calculator.vcxproj -> E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Debug\Calculator.exe

@@ -39,12 +39,12 @@ void Calculate::process(string pos)
 				break;
 			case '/':
 				if (d2 == 0)
-					throw logic_error("Illegal entry form\n");
+					throw logic_error("Undefined\n");
 				result.push(to_string(division(d1, d2)));
 				break;
 			case '^':
 				if (d1 < 0 && d2 < 1 && d2>0)
-					throw logic_error("Illegal entry form\n");
+					throw logic_error("Undefined\n");
 				result.push(to_string(exponentiation(d1, d2)));
 				break;
 			default:
@@ -236,27 +236,27 @@ bool Calculate::checkCorrect(string c)
 		case ')':
 			if (!p.isEmpty()) {
 				if (c[i - 1] == '(')
-					throw logic_error("Illegal entry form\n");
+					throw logic_error("The parentheses are incorrect.\n");
 				p.pop();
 			}
 			else
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("The parentheses are incorrect.\n");
 			break;
 		case '.':
 			if (i == 0 || i == c.length() - 1)
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Incorrect decimal form.\n");
 			if (!isOperand(c[i - 1]) || !isOperand(c[i + 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Incorrect decimal form.\n");
 			int j;
 			for (j = i + 1; j < c.length() && isOperand(c[j]); j++);
 			if ((j == i + 1 || c[j] == '.') && j < c.length())
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Incorrect decimal form.\n");
 			break;
 		case '+':
 			afterPlusOrMinus(c, i);
 			if (c[i] == '+') {
 				if (!isOperand(c[i + 1]) && c[i + 1] != '(')
-					throw logic_error("Illegal entry form\n");
+					throw logic_error("Operator '+' does not have operands.\n");
 			}
 			else
 				i--;
@@ -265,34 +265,34 @@ bool Calculate::checkCorrect(string c)
 			afterPlusOrMinus(c, i);
 			if (c[i] == '-') {
 				if (!isOperand(c[i + 1]) && c[i + 1] != '(')
-					throw logic_error("Illegal entry form\n");
+					throw logic_error("Operator '-' does not have operands.\n");
 			}
 			else
 				i--;
 			break;
 		case '*':
 			if (i == 0)
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '*' does not have operands.\n");
 			if (c[i - 1] != ')' && !isOperand(c[i - 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '*' does not have operands.\n");
 			if (c[i + 1] != '+' && c[i + 1] != '-' && c[i + 1] != '(' && !isOperand(c[i + 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '*' does not have operands.\n");
 			break;
 		case '/':
 			if (i == 0)
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '/' does not have operands.\n");
 			if (c[i - 1] != ')' && !isOperand(c[i - 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '/' does not have operands.\n");
 			if (c[i + 1] != '+' && c[i + 1] != '-' && c[i + 1] != '(' && !isOperand(c[i + 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '/' does not have operands.\n");
 			break;
 		case '^':
 			if (i == 0)
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '^' does not have operands.\n");
 			if (c[i - 1] != ')' && !isOperand(c[i - 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '^' does not have operands.\n");
 			if (c[i + 1] != '+' && c[i + 1] != '-' && c[i + 1] != '(' && !isOperand(c[i + 1]))
-				throw logic_error("Illegal entry form\n");
+				throw logic_error("Operator '^' does not have operands.\n");
 			break;
 		default:
 			if(!isOperand(c[i]))
@@ -301,7 +301,7 @@ bool Calculate::checkCorrect(string c)
 		}
 	}
 	if (!p.isEmpty()) {
-		throw logic_error("Illegal entry form\n");
+		throw logic_error("The parentheses are incorrect.\n");
 	}
 	return true;
 }
