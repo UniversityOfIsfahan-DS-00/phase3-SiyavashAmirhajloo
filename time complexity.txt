@@ -1,0 +1,68 @@
+time complexity of proess function ---->>> O(n)
+
+void Calculate::process(string pos)
+{
+	LinkedListStack<string> result;
+	double d1, d2;
+	for (int i = 0; i < pos.length(); i++) {
+		if (isOperand(pos[i]) || pos[i] == '-' && isOperand(pos[i + 1])) {
+			string cal;
+			while (pos[i] != ' ' && pos[i] != '\0') {
+				cal += pos[i];
+				i++;
+			}
+			result.push(cal);
+		}
+		else if (isOperator(pos[i])) {
+			d2 = stod(result.top());
+			result.pop();
+			d1 = stod(result.top());
+			result.pop();
+			switch (pos[i]) {
+			case '+':
+				result.push(to_string(sum(d1, d2)));
+				break;
+			case '-':
+				result.push(to_string(subtraction(d1, d2)));
+				break;
+			case '*':
+				result.push(to_string(product(d1, d2)));
+				break;
+			case '/':
+				if (d2 == 0)
+					throw logic_error("Undefined\n");
+				result.push(to_string(division(d1, d2)));
+				break;
+			case '^':
+				if (d1 < 0 && d2 < 1 && d2>0)
+					throw logic_error("Undefined\n");
+				result.push(to_string(exponentiation(d1, d2)));
+				break;
+			default:
+				break;
+			}
+			int j = i, count = 0;
+			while (count < 3) {
+				if (j == 0)
+					count++;
+				else if (pos[j] == ' ')
+					count++;
+				if (count < 3)
+					j--;
+			}
+			if (j == 0) {
+				pos = pos.substr(0, j) + result.top() + pos.substr(i + 1);
+				i = j + result.top().length();
+			}
+			else {
+				pos = pos.substr(0, j) + " " + result.top() + pos.substr(i + 1);
+				i = j + result.top().length(); +1;
+			}
+			cout << "\n--> " << toInfix(pos) << endl;
+		}
+	}
+	if (!result.isEmpty()) {
+		cout << "\nFinal: " << stod(result.top()) << endl;
+		result.pop();
+	}
+}
