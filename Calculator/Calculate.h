@@ -15,6 +15,7 @@ public:
 	bool isOperand(char);
 	bool eqlOrHigher(char, char);
 	void afterPlusOrMinus(string&, int);
+	void resizeString(string&);
 	double sum(double a, double b) { return a + b; }
 	double subtraction(double a, double b) { return a - b; }
 	double product(double a, double b) { return a * b; }

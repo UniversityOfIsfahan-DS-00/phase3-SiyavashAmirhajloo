@@ -27,25 +27,36 @@ void Calculate::process(string pos)
 			result.pop();
 			d1 = stod(result.top());
 			result.pop();
+			string temp;
 			switch (pos[i]) {
 			case '+':
-				result.push(to_string(sum(d1, d2)));
+				temp = to_string(sum(d1, d2));
+				resizeString(temp);
+				result.push(temp);
 				break;
 			case '-':
-				result.push(to_string(subtraction(d1, d2)));
+				temp = to_string(subtraction(d1, d2));
+				resizeString(temp);
+				result.push(temp);
 				break;
 			case '*':
-				result.push(to_string(product(d1, d2)));
+				temp = to_string(product(d1, d2));
+				resizeString(temp);
+				result.push(temp);
 				break;
 			case '/':
 				if (d2 == 0)
 					throw logic_error("Undefined\n");
-				result.push(to_string(division(d1, d2)));
+				temp = to_string(division(d1, d2));
+				resizeString(temp);
+				result.push(temp);
 				break;
 			case '^':
 				if (d1 < 0 && d2 < 1 && d2>0)
 					throw logic_error("Undefined\n");
-				result.push(to_string(exponentiation(d1, d2)));
+				temp = to_string(exponentiation(d1, d2));
+				resizeString(temp);
+				result.push(temp);
 				break;
 			default:
 				break;
@@ -363,4 +374,16 @@ void Calculate::afterPlusOrMinus(string& c, int i)
 			}
 		}
 	}
+}
+
+void Calculate::resizeString(string& num)
+{
+	while (num[num.length() - 1] != '.') {
+		if (num[num.length() - 1] == '0')
+			num.resize(num.length() - 1);
+		else
+			break;
+	}
+	if (num[num.length() - 1] == '.')
+		num.resize(num.length() - 1);
 }
