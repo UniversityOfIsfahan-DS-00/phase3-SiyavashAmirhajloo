@@ -1,6 +1,7 @@
 #include <stdexcept>
 #include <string>
 #include "LinkedListStack.h"
+#include "BinaryTree.h"
 
 class Calculate
 {
@@ -9,6 +10,7 @@ public:
 	void process(string);
 	string toPostfix(string);
 	string toInfix(string);
+	string postToPre(string);
 	bool checkCorrect(string);
 	void deleteSpaces(string&);
 	bool isOperator(char);

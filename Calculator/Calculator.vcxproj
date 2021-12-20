@@ -143,9 +143,11 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Calculate.h" />
     <ClInclude Include="LinkedListStack.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="BTNodes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

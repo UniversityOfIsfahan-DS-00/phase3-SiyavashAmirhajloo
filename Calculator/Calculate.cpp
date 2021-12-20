@@ -1,4 +1,4 @@
-#include "Calculate.h"
+﻿#include "Calculate.h"
 
 Calculate::Calculate(string c)
 {
@@ -6,12 +6,20 @@ Calculate::Calculate(string c)
 	if (checkCorrect(c)) {
 		string p = toPostfix(c);
 		process(p);
+		string preForTree = postToPre(p);
+		cout << endl;
+		int i = 0;
+		BinaryTree<string> CBT;
+		CBT.makeStringBinaryTree(preForTree, i, CBT.root);
+		string temp = "";
+		CBT.showBinaryTree(temp, CBT.root, false);
 	}
 }
 
 void Calculate::process(string pos)
 {
 	LinkedListStack<string> result;
+	BinaryTree<string> tree;
 	double d1, d2;
 	for (int i = 0; i < pos.length(); i++) {
 		if (isOperand(pos[i]) || pos[i] == '-' && isOperand(pos[i + 1])) {
@@ -234,6 +242,48 @@ string Calculate::toInfix(string pos)
 	if (!s.isEmpty())
 		return s.top();
 	return "";
+}
+
+string Calculate::postToPre(string post)
+{
+	LinkedListStack<string> op;
+	string pre;
+	for (int i = post.length() - 1; i >= 0; i--) {
+		if (post[i] == ' ')
+			continue;
+		if (isOperator(post[i]) && !isOperand(post[i + 1])) {
+			pre = pre + post[i] + " ";
+			continue;
+		}
+		if (isOperand(post[i])) {
+			string num;
+			while (post[i] != ' ' && i > 0) {
+				num = post[i] + num;
+				i--;
+			}
+			if (i == 0) {
+				num = post[i] + num;
+				i--;
+			}
+			if (post.length() > 1) {
+				if (isOperand(post[i + num.length() + 2]) || isOperand(post[i + num.length() + 3])) {
+					pre = pre + num + " ";
+					pre = pre + op.top() + " ";
+					op.pop();
+				}
+				else
+					op.push(num);
+			}
+			else 
+				pre = pre + num + " ";
+		}
+	}
+	while (!op.isEmpty()) {
+		pre = pre + op.top() + " ";
+		op.pop();
+	}
+	pre.erase(pre.length() - 1, 1);
+	return pre;
 }
 
 bool Calculate::checkCorrect(string c)
