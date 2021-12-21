@@ -246,43 +246,41 @@ string Calculate::toInfix(string pos)
 
 string Calculate::postToPre(string post)
 {
-	LinkedListStack<string> op;
-	string pre;
-	for (int i = post.length() - 1; i >= 0; i--) {
+	LinkedListStack<string> s;
+	for (int i = 0; i < post.length(); i++) {
 		if (post[i] == ' ')
 			continue;
 		if (isOperator(post[i]) && !isOperand(post[i + 1])) {
-			pre = pre + post[i] + " ";
-			continue;
+			string op2 = s.top();
+			s.pop();
+			string op1 = s.top();
+			s.pop();
+			string temp = "";
+			temp += post[i];
+			temp += (" " + op1);
+			if (op1[op1.length() - 1] != ' ')
+				temp += " ";
+			temp += op2;
+			if (op2[op2.length() - 1] != ' ')
+				temp += " ";
+			s.push(temp);
 		}
-		if (isOperand(post[i])) {
-			string num;
-			while (post[i] != ' ' && i > 0) {
-				num = post[i] + num;
-				i--;
+		else {
+			string op = "";
+			op += post[i];
+			i++;
+			while (post[i] != ' ') {
+				op += post[i];
+				i++;
 			}
-			if (i == 0) {
-				num = post[i] + num;
-				i--;
-			}
-			if (post.length() > 1) {
-				if (isOperand(post[i + num.length() + 2]) || isOperand(post[i + num.length() + 3])) {
-					pre = pre + num + " ";
-					pre = pre + op.top() + " ";
-					op.pop();
-				}
-				else
-					op.push(num);
-			}
-			else 
-				pre = pre + num + " ";
+			s.push(op);
 		}
 	}
-	while (!op.isEmpty()) {
-		pre = pre + op.top() + " ";
-		op.pop();
+	string pre;
+	while (!s.isEmpty()) {
+		pre += s.top();
+		s.pop();
 	}
-	pre.erase(pre.length() - 1, 1);
 	return pre;
 }
 

@@ -1,14 +1,16 @@
 ﻿  Calculate.cpp
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(24,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(104,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(225,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(292,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(312,22): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(313,41): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(372,20): warning C4018: '<': signed/unsigned mismatch
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(409,24): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(25,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(105,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(226,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(251,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(293,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(313,22): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(314,41): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(373,20): warning C4018: '<': signed/unsigned mismatch
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(410,24): warning C4018: '<': signed/unsigned mismatch
 E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\BinaryTree.h(22,29): warning C4018: '<': signed/unsigned mismatch
 E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\BinaryTree.h(20): message : while compiling class template member function 'void BinaryTree<std::string>::makeStringBinaryTree(std::string &,int &,node<std::string> *)'
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(13): message : see reference to function template instantiation 'void BinaryTree<std::string>::makeStringBinaryTree(std::string &,int &,node<std::string> *)' being compiled
-E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(12): message : see reference to class template instantiation 'BinaryTree<std::string>' being compiled
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(14): message : see reference to function template instantiation 'void BinaryTree<std::string>::makeStringBinaryTree(std::string &,int &,node<std::string> *)' being compiled
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(13): message : see reference to class template instantiation 'BinaryTree<std::string>' being compiled
+E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Calculate.cpp(288): warning C4715: 'Calculate::postToPre': not all control paths return a value
   Calculator.vcxproj -> E:\mini_project3\phase3-SiyavashAmirhajloo\Calculator\Debug\Calculator.exe
